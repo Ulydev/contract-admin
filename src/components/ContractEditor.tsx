@@ -97,6 +97,7 @@ const ContractEditor = () => {
             const buildOrAbi = JSON.parse(abi)
             const contract = new Contract(address, buildOrAbi.abi || buildOrAbi, signer)
             setContract(contract)
+            ;(window as any).contract = contract
             setContractMessage({ text: "Created contract successfully", color: "text-green-500" })
         } catch (e) {
             setContractMessage({ text: e.toString(), color: "text-red-500" })
